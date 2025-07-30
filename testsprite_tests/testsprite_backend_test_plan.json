@@ -1,0 +1,27 @@
+[
+  {
+    "id": "TC001",
+    "title": "upload_data_api_should_accept_valid_excel_file_and_reject_invalid_files",
+    "description": "Test the /upload_data POST endpoint to ensure it correctly accepts a valid Excel .xlsx file containing haul cycle data and returns a 200 status with success message. Also verify it rejects invalid file formats or corrupted files with a 400 status and appropriate error message."
+  },
+  {
+    "id": "TC002",
+    "title": "get_kpis_api_should_return_real_time_kpi_metrics",
+    "description": "Test the /get_kpis GET endpoint to verify it returns real-time KPI data including average dump wait, load wait, trips per shift, and utilization metrics in JSON format with a 200 status code."
+  },
+  {
+    "id": "TC003",
+    "title": "optimize_shifts_api_should_perform_automatic_shift_start_optimization",
+    "description": "Test the /optimize_shifts POST endpoint to ensure it accepts optimization weights and current contractor offsets, performs grid search optimization, and returns recommended shift start offsets with a 200 status. Also verify it handles invalid parameters with a 400 error."
+  },
+  {
+    "id": "TC004",
+    "title": "simulate_queues_api_should_run_discrete_event_simulation_and_return_results",
+    "description": "Test the /simulate_queues POST endpoint to verify it accepts current contractor schedule offsets and timing details, runs a discrete-event simulation of dump site queues, and returns simulation results including queue wait times and service rates with a 200 status. Also check for proper error handling on invalid input."
+  },
+  {
+    "id": "TC005",
+    "title": "export_schedule_api_should_provide_optimized_schedule_excel_file",
+    "description": "Test the /export_schedule GET endpoint to ensure it exports the optimized schedule and offsets as an Excel file stream with a 200 status. Verify it returns a 400 error if export fails or no data is available."
+  }
+]

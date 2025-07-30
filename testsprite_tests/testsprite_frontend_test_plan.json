@@ -1,0 +1,335 @@
+[
+  {
+    "id": "TC001",
+    "title": "Excel Data Upload and Cleaning",
+    "description": "Verify the system correctly loads and cleans the uploaded Excel dataset, ensuring all critical fields are present and properly mapped.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Upload a valid Excel dataset containing historical truck haul cycle data."
+      },
+      {
+        "type": "assertion",
+        "description": "System loads data without errors and automatically cleans missing or malformed entries."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify all critical fields are present and mapped correctly to internal data structures."
+      },
+      {
+        "type": "action",
+        "description": "Upload an Excel dataset missing critical fields."
+      },
+      {
+        "type": "assertion",
+        "description": "System rejects dataset or provides meaningful error messages indicating missing fields."
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "Dashboard KPI Refresh Performance",
+    "description": "Ensure that the KPI dashboard refreshes within 2 seconds on datasets with up to 10,000 truck cycle records.",
+    "category": "performance",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Load a dataset with 10,000 truck cycle records."
+      },
+      {
+        "type": "action",
+        "description": "Navigate to the main KPI dashboard."
+      },
+      {
+        "type": "assertion",
+        "description": "KPI dashboard fully renders and refreshes within 2 seconds."
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "M/M/1 Queuing Theory Waiting Time Calculation",
+    "description": "Validate waiting time calculations correctly implement M/M/1 queuing theory with utilization thresholds and provide realistic waiting time estimates.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Input arrival rate and service rate to produce utilization rho < 0.7."
+      },
+      {
+        "type": "assertion",
+        "description": "Calculated waiting time matches the standard M/M/1 formula."
+      },
+      {
+        "type": "action",
+        "description": "Input arrival rate and service rate resulting in 0.7 <= rho < 0.9."
+      },
+      {
+        "type": "assertion",
+        "description": "Waiting time is capped to 25 minutes as per threshold."
+      },
+      {
+        "type": "action",
+        "description": "Input arrival rate and service rate resulting in rho >= 0.9."
+      },
+      {
+        "type": "assertion",
+        "description": "Waiting time is capped to 34.8 minutes as per threshold."
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "Multi-site Dump Location Handling",
+    "description": "Verify the system correctly manages multiple dump locations (FENI KM0 and KM15), applies correct service rates, and produces individual KPIs per site.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Configure dump sites with specified service rates for KM0 and KM15."
+      },
+      {
+        "type": "action",
+        "description": "Upload dataset containing truck cycles for both dump locations."
+      },
+      {
+        "type": "assertion",
+        "description": "System calculates and displays waiting times and utilizations separately for each site."
+      },
+      {
+        "type": "assertion",
+        "description": "Dashboard KPIs reflect accurate per-site analytics."
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Discrete-Event Simulation Time Buckets",
+    "description": "Ensure the discrete-event simulation engine models simulated truck flows using 15-minute time buckets accurately reflecting queue dynamics.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Run simulation on a dataset covering multiple hours of operation."
+      },
+      {
+        "type": "assertion",
+        "description": "Simulation time progresses in 15-minute increments."
+      },
+      {
+        "type": "assertion",
+        "description": "Queue lengths and waiting times update according to simulated truck arrivals and departures per time bucket."
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Manual Shift-Start Offset Optimization",
+    "description": "Validate user can manually adjust contractor shift start time offsets and see immediate update of KPIs and visualization reflecting predicted impacts on queuing times.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to optimization panel."
+      },
+      {
+        "type": "action",
+        "description": "Manually change shift start offset for a contractor."
+      },
+      {
+        "type": "assertion",
+        "description": "System updates the discrete-event simulation with new offsets."
+      },
+      {
+        "type": "assertion",
+        "description": "Dashboard KPIs and visualizations immediately reflect the new waiting times and utilization."
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "Automated Grid Search Optimization",
+    "description": "Test the automated optimization algorithm runs a grid search over possible start time offsets and recommends contractor departure times that reduce average dump waiting times.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Trigger automated optimization on a dataset."
+      },
+      {
+        "type": "assertion",
+        "description": "Grid search runs through defined offset ranges."
+      },
+      {
+        "type": "assertion",
+        "description": "System outputs recommended shift start offsets for contractors."
+      },
+      {
+        "type": "assertion",
+        "description": "Recommended offsets decrease average wait times compared to baseline."
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "Export Optimized Scheduling to Excel",
+    "description": "Verify that the exported Excel schedule contains correct contractor offsets and timing data consistent with optimization results, ready for operational use.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Perform manual or automated optimization."
+      },
+      {
+        "type": "action",
+        "description": "Export the optimized schedule."
+      },
+      {
+        "type": "assertion",
+        "description": "Excel file downloads without error."
+      },
+      {
+        "type": "assertion",
+        "description": "Exported data reflects contractor offsets and timings as shown in the UI."
+      },
+      {
+        "type": "assertion",
+        "description": "File format and structure conform to operational requirements."
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "Fleet Configuration Management",
+    "description": "Ensure users can configure multiple contractors, truck counts, routes, and dump site assignments, and that changes persist and update KPIs accordingly.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to fleet configuration panel."
+      },
+      {
+        "type": "action",
+        "description": "Add, modify or remove contractors, truck counts, routes, and assign dump sites."
+      },
+      {
+        "type": "action",
+        "description": "Save configuration."
+      },
+      {
+        "type": "assertion",
+        "description": "Changes persist after refresh or navigation."
+      },
+      {
+        "type": "assertion",
+        "description": "KPI dashboards reflect updated fleet configuration."
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "System Behavior on Missing or Corrupt Excel Data",
+    "description": "Test system handles missing or corrupt Excel data gracefully without crashing, providing suitable error messages.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Upload an Excel file with missing critical columns or corrupted format."
+      },
+      {
+        "type": "assertion",
+        "description": "System detects missing or corrupt data."
+      },
+      {
+        "type": "assertion",
+        "description": "User is presented with clear error messages instructing on correcting the input."
+      },
+      {
+        "type": "assertion",
+        "description": "System does not crash or enter inconsistent state."
+      }
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "User Interface Responsiveness on Optimization Inputs",
+    "description": "Verify that the user interface responds immediately to manual and autonomous optimization input changes by updating KPIs and visualizations.",
+    "category": "ui",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Perform manual shift-start offset change."
+      },
+      {
+        "type": "assertion",
+        "description": "KPIs and visualizations update within 2 seconds reflecting new data."
+      },
+      {
+        "type": "action",
+        "description": "Trigger auto-optimization."
+      },
+      {
+        "type": "assertion",
+        "description": "UI updates KPIs and visualizations upon algorithm completion."
+      }
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "Real Truck Journey Simulation Accuracy",
+    "description": "Validate the discrete-event simulation accurately models individual truck journeys including parking, loading, travel and dumping with congestion factors affecting timing.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Run simulation on dataset with known truck journeys and travel times."
+      },
+      {
+        "type": "assertion",
+        "description": "Simulation outputs realistic timing consistent with input travel and loading times."
+      },
+      {
+        "type": "assertion",
+        "description": "Queue lengths and waiting times vary consistent with congestion effects."
+      }
+    ]
+  },
+  {
+    "id": "TC013",
+    "title": "Service Rate Configuration Validation",
+    "description": "Ensure the system correctly applies configured service rates for FENI KM0 (8.5 trucks/hour) and KM15 (11.0 trucks/hour) during waiting time and utilization calculations.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Check default service rates applied from configuration."
+      },
+      {
+        "type": "assertion",
+        "description": "Waiting time and utilization calculations use these rates precisely."
+      },
+      {
+        "type": "action",
+        "description": "Modify service rates and observe impact on waiting time calculation."
+      },
+      {
+        "type": "assertion",
+        "description": "Changes are reflected immediately in simulation and KPIs."
+      }
+    ]
+  }
+]

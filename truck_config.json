@@ -1,0 +1,60 @@
+{
+  "CKB": {
+    "KR": {
+      "departure_time": "06:00",
+      "dumping_location": "FENI D (LINE 13-14)",
+      "loading_location": "KR",
+      "number_of_trucks": 20
+    },
+    "TF": {
+      "departure_time": "05:30",
+      "dumping_location": "FENI A (LINE 1-2)",
+      "loading_location": "TF",
+      "number_of_trucks": 50
+    }
+  },
+  "GMG": {
+    "KM10": {
+      "departure_time": "06:30",
+      "dumping_location": "FENI W (LINE 69-70)",
+      "loading_location": "TF",
+      "number_of_trucks": 35
+    }
+  },
+  "HJS": {
+    "CBB": {
+      "departure_time": "07:00",
+      "dumping_location": "FENI B (LINE 5-6)",
+      "loading_location": "BLB",
+      "number_of_trucks": 35
+    }
+  },
+  "RIM": {
+    "BLB": {
+      "departure_time": "07:30",
+      "dumping_location": "FENI U2 (LINE 67-68)",
+      "loading_location": "BLB",
+      "number_of_trucks": 45
+    },
+    "KR": {
+      "departure_time": "08:00",
+      "dumping_location": "FENI W (LINE 71-72)",
+      "loading_location": "KR",
+      "number_of_trucks": 35
+    },
+    "TF": {
+      "departure_time": "05:00",
+      "dumping_location": "FENI U1 (LINE 65-66)",
+      "loading_location": "TF",
+      "number_of_trucks": 55
+    }
+  },
+  "SSS": {
+    "POS 10 / KR": {
+      "departure_time": "06:00",
+      "dumping_location": "FENI C (LINE 11-12)",
+      "loading_location": "KR",
+      "number_of_trucks": 35
+    }
+  }
+}

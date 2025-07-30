@@ -1,0 +1,16 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:8511",
+  "executionArgs": {
+    "projectName": "DUMP OPTIMISER",
+    "projectPath": "/Users/lucky/Documents/CODE/DUMP OPTIMISER",
+    "testIds": [],
+    "additionalInstruction": "Focus on testing and analyzing the departure time optimization algorithms, waiting time calculations, and individual dump location optimization. Identify why the optimization is showing negative improvements (-14.3 minutes) and provide recommendations for better optimization calculations that actually reduce waiting times at FENI dump sites.",
+    "envs": {
+      "API_KEY": "sk-user-z_KaARH5Y7F3mjlj5h3pgmG8sdHQSmvEIUEHsRc2-DbXKzoHwxlwNJvpQuSX56ZiA8yync2raTXH6EPu8aX9KQTo-FlctPYQzyg_pMpn9JKfyCkE6eGohTsybixRWit4TFk"
+    }
+  },
+  "proxy": "http://a9dbbb5c-b13c-4ceb-b31e-0e2992e15212:plmtSu8W9qOY6SWKp2nX87JejRWaxos1@tun.testsprite.com:8080"
+}

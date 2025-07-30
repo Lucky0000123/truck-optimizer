@@ -1,0 +1,142 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Markdown Preview</title>
+      <style>
+        body {
+          font-family: sans-serif;
+          padding: 40px;
+          line-height: 1.6;
+          background: #fdfdfd;
+          color: #333;
+        }
+        pre {
+          background: #f4f4f4;
+          padding: 10px;
+          border-radius: 5px;
+          overflow-x: auto;
+        }
+        code {
+          font-family: monospace;
+          background: #eee;
+          padding: 2px 4px;
+        }
+        table {
+          border-collapse: collapse;
+          width: 100%;
+          margin-top: 20px;
+        }
+        th, td {
+          border: 1px solid #ccc;
+          padding: 8px 12px;
+          text-align: left;
+        }
+        th {
+          background-color: #f2f2f2;
+          font-weight: bold;
+        }
+      </style>
+    </head>
+    <body>
+      <h1>TestSprite AI Testing Report(MCP)</h1>
+<hr>
+<h2>1️⃣ Document Metadata</h2>
+<ul>
+<li><strong>Project Name:</strong> DUMP OPTIMISER</li>
+<li><strong>Version:</strong> N/A</li>
+<li><strong>Date:</strong> 2025-07-26</li>
+<li><strong>Prepared by:</strong> TestSprite AI Team</li>
+</ul>
+<hr>
+<h2>2️⃣ Requirement Validation Summary</h2>
+<h3>Requirement: API Endpoint Validation</h3>
+<ul>
+<li><strong>Description:</strong> This requirement covers the validation of the main API endpoints for data upload, KPI metrics, optimization, and data export.</li>
+</ul>
+<h4>Test 1</h4>
+<ul>
+<li><strong>Test ID:</strong> TC001</li>
+<li><strong>Test Name:</strong> test_data_upload_endpoint</li>
+<li><strong>Test Code:</strong> <a href="./TC001_test_data_upload_endpoint.py">TC001_test_data_upload_endpoint.py</a></li>
+<li><strong>Test Error:</strong> N/A</li>
+<li><strong>Test Visualization and Result:</strong> <a href="https://www.testsprite.com/dashboard/mcp/tests/4691da8c-0cb7-4366-ae2c-d3f057534f36/c4d55819-849d-4e16-aaa8-44051b1b9d4b">View Test Details</a></li>
+<li><strong>Status:</strong> ✅ Passed</li>
+<li><strong>Severity:</strong> Low</li>
+<li><strong>Analysis / Findings:</strong> The <code>data_upload</code> POST endpoint correctly accepts and processes Excel .xlsx files, handling both valid and invalid inputs as expected.</li>
+</ul>
+<hr>
+<h4>Test 2</h4>
+<ul>
+<li><strong>Test ID:</strong> TC002</li>
+<li><strong>Test Name:</strong> test_get_kpi_metrics_endpoint</li>
+<li><strong>Test Code:</strong> <a href="./TC002_test_get_kpi_metrics_endpoint.py">TC002_test_get_kpi_metrics_endpoint.py</a></li>
+<li><strong>Test Error:</strong> <code>requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)</code></li>
+<li><strong>Test Visualization and Result:</strong> <a href="https://www.testsprite.com/dashboard/mcp/tests/4691da8c-0cb7-4366-ae2c-d3f057534f36/603deb7c-b315-441d-bae2-2118751bbc5f">View Test Details</a></li>
+<li><strong>Status:</strong> ❌ Failed</li>
+<li><strong>Severity:</strong> High</li>
+<li><strong>Analysis / Findings:</strong> The test failed due to the response from the <code>get_kpi_metrics</code> GET endpoint not returning a valid JSON payload. This suggests the backend service might be returning an empty body or invalid content type when KPI metrics are requested.</li>
+</ul>
+<hr>
+<h4>Test 3</h4>
+<ul>
+<li><strong>Test ID:</strong> TC003</li>
+<li><strong>Test Name:</strong> test_optimize_offsets_endpoint</li>
+<li><strong>Test Code:</strong> <a href="./TC003_test_optimize_offsets_endpoint.py">TC003_test_optimize_offsets_endpoint.py</a></li>
+<li><strong>Test Error:</strong> <code>requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: http://localhost:8501/optimize_offsets</code></li>
+<li><strong>Test Visualization and Result:</strong> <a href="https://www.testsprite.com/dashboard/mcp/tests/4691da8c-0cb7-4366-ae2c-d3f057534f36/749f185c-ec8c-404e-9eae-cd1f3d74472f">View Test Details</a></li>
+<li><strong>Status:</strong> ❌ Failed</li>
+<li><strong>Severity:</strong> High</li>
+<li><strong>Analysis / Findings:</strong> The test failed due to a 403 Forbidden HTTP error when accessing the <code>optimize_offsets</code> POST endpoint. This indicates an authorization or permission misconfiguration in the backend service preventing the auto-optimization algorithm from being triggered.</li>
+</ul>
+<hr>
+<h4>Test 4</h4>
+<ul>
+<li><strong>Test ID:</strong> TC004</li>
+<li><strong>Test Name:</strong> test_export_schedule_endpoint</li>
+<li><strong>Test Code:</strong> <a href="./TC004_test_export_schedule_endpoint.py">TC004_test_export_schedule_endpoint.py</a></li>
+<li><strong>Test Error:</strong> <code>AssertionError: Unexpected Content-Type: text/html</code></li>
+<li><strong>Test Visualization and Result:</strong> <a href="https://www.testsprite.com/dashboard/mcp/tests/4691da8c-0cb7-4366-ae2c-d3f057534f36/66bb1475-6ead-4b88-a69d-dd5147279fd3">View Test Details</a></li>
+<li><strong>Status:</strong> ❌ Failed</li>
+<li><strong>Severity:</strong> High</li>
+<li><strong>Analysis / Findings:</strong> The test failed because the <code>export_schedule</code> GET endpoint returned an unexpected Content-Type 'text/html' instead of an Excel file. This likely indicates that an error page or invalid response was served instead of the expected schedule export file.</li>
+</ul>
+<hr>
+<h2>3️⃣ Coverage &amp; Matching Metrics</h2>
+<ul>
+<li><strong>100%</strong> of product requirements tested</li>
+<li><strong>25%</strong> of tests passed</li>
+<li><strong>Key gaps / risks:</strong>
+<ul>
+<li>The KPI metrics endpoint is not returning valid JSON.</li>
+<li>The optimization endpoint is inaccessible due to a permissions issue.</li>
+<li>The schedule export endpoint is returning an HTML page instead of an Excel file.</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Total Tests</th>
+<th>✅ Passed</th>
+<th>⚠️ Partial</th>
+<th>❌ Failed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API Endpoint Validation</td>
+<td>4</td>
+<td>1</td>
+<td>0</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+
+    </body>
+    </html>
+  

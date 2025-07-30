@@ -1,0 +1,55 @@
+{
+  "tech_stack": ["Python", "Streamlit", "Pandas", "Plotly", "NumPy", "Excel/OpenPyXL", "M/M/1 Queuing Theory"],
+  "features": [
+    {
+      "name": "Real-time Dashboard",
+      "description": "Main dashboard displaying KPIs, waiting times, and fleet performance metrics for FENI dump sites",
+      "files": ["app.py", "ui_components.py"]
+    },
+    {
+      "name": "Waiting Time Calculation Engine",
+      "description": "Core M/M/1 queuing theory algorithms to calculate realistic waiting times at dump sites using utilization-based approach",
+      "files": ["core_calculations.py", "ui_components.py"]
+    },
+    {
+      "name": "Individual Dump Location Analysis",
+      "description": "Calculates waiting times and utilization for specific individual dump locations within FENI KM0 and KM15",
+      "files": ["ui_components.py", "config.py"]
+    },
+    {
+      "name": "Departure Time Optimization",
+      "description": "Optimization algorithm to find best departure times from parking locations to minimize dump site waiting times",
+      "files": ["app.py", "core_calculations.py"]
+    },
+    {
+      "name": "Fleet Configuration Management",
+      "description": "System to configure contractors, truck counts, routes, and dump site assignments",
+      "files": ["ui_components.py", "data_handlers.py", "config.py"]
+    },
+    {
+      "name": "Excel Data Integration",
+      "description": "Loads and processes Time_Data.xlsx with real operational data for cycle times and travel times",
+      "files": ["data_handlers.py", "core_calculations.py"]
+    },
+    {
+      "name": "FENI Dump Site Management",
+      "description": "Hierarchical management of FENI KM0 and KM15 dump sites with individual sub-locations and service rates",
+      "files": ["config.py", "core_calculations.py"]
+    },
+    {
+      "name": "Service Rate Configuration",
+      "description": "Defines service rates for dump sites: FENI KM0 (8.5 trucks/hour), FENI KM15 (11.0 trucks/hour) based on real data",
+      "files": ["core_calculations.py", "ui_components.py"]
+    },
+    {
+      "name": "Utilization-Based Wait Calculation",
+      "description": "Uses rho (utilization factor) = arrival_rate / service_rate to determine waiting times with thresholds: rho>=0.9 (34.8 min), rho>=0.7 (25 min), else M/M/1 formula",
+      "files": ["core_calculations.py", "ui_components.py"]
+    },
+    {
+      "name": "Real Truck Journey Simulation",
+      "description": "Simulates individual truck journeys from parking to loading to dumping with realistic travel times and congestion factors",
+      "files": ["app.py", "core_calculations.py"]
+    }
+  ]
+} 
